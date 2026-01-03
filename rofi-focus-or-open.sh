@@ -75,7 +75,9 @@ if [[ -n "$wm_class" ]]; then
     window_id=$(wmctrl -lx 2>/dev/null | grep -i "$wm_class" | head -1 | awk '{print $1}')
 fi
 if [[ -z "$window_id" && -n "$binary" ]]; then
-    window_id=$(wmctrl -lx 2>/dev/null | awk -v b="$binary" 'tolower($3)~tolower(b){print $1;exit}')
+    # Strip common suffixes (-stable, -beta, -dev, -nightly) for better matching
+    binary_base=$(echo "$binary" | sed 's/-\(stable\|beta\|dev\|nightly\)$//')
+    window_id=$(wmctrl -lx 2>/dev/null | awk -v b="$binary_base" 'tolower($3)~tolower(b){print $1;exit}')
 fi
 
 # Focus or launch

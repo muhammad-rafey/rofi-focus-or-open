@@ -28,8 +28,8 @@ echo "[4/5] Installing launcher script..."
 cp "$SCRIPT_DIR/rofi-focus-or-open.sh" ~/rofi-focus-or-open.sh
 chmod +x ~/rofi-focus-or-open.sh
 
-# Initialize frequency file
-echo '{}' > ~/.local/share/rofi/app_frequency.json
+# Initialize frequency file (only if it doesn't exist, to preserve usage history)
+[[ -f ~/.local/share/rofi/app_frequency.json ]] || echo '{}' > ~/.local/share/rofi/app_frequency.json
 
 # Build app cache
 echo "[5/5] Building app cache..."
