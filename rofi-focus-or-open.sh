@@ -48,7 +48,7 @@ try:
 except: apps = []
 apps.sort(key=lambda x: (-freq.get(x.split('|')[0], 0), x.split('|')[0].lower()))
 for a in apps: print(a.split('|')[0])
-" | rofi -dmenu -i -p "" -matching fuzzy -theme-str 'window {width: 40%;}' -theme-str 'listview {lines: 15;}')
+" | rofi -dmenu -i -p "" -matching prefix -theme-str 'window {width: 40%;}' -theme-str 'listview {lines: 15;}')
 
 [[ -z "$selected" ]] && exit 0
 
