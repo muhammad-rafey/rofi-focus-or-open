@@ -1,0 +1,98 @@
+configuration {
+    modi: "drun,window,run";
+    show-icons: true;
+    icon-theme: "Adwaita";
+    terminal: "foot";
+    drun-display-format: "{name}";
+    location: 0;
+    disable-history: false;
+    hide-scrollbar: true;
+    display-drun: "Apps";
+    display-window: "Windows";
+    display-run: "Run";
+    sidebar-mode: true;
+}
+
+@theme "custom"
+
+* {
+    font: "Ubuntu 12";
+    background-color: transparent;
+    text-color: #c0c5ce;
+}
+
+window {
+    background-color: #2b303bee;
+    border: 2px;
+    border-color: #64727d;
+    border-radius: 8px;
+    width: 600px;
+    padding: 10px;
+}
+
+mainbox {
+    children: [inputbar, listview, mode-switcher];
+    spacing: 10px;
+}
+
+inputbar {
+    children: [prompt, entry];
+    background-color: #3b4252;
+    border-radius: 5px;
+    padding: 8px;
+}
+
+prompt {
+    background-color: #5e81ac;
+    text-color: #eceff4;
+    padding: 4px 10px;
+    border-radius: 4px;
+    margin: 0 10px 0 0;
+}
+
+entry {
+    placeholder: "Search...";
+    placeholder-color: #65737e;
+}
+
+listview {
+    lines: 8;
+    columns: 1;
+    scrollbar: false;
+    spacing: 5px;
+}
+
+element {
+    padding: 8px;
+    border-radius: 5px;
+}
+
+element selected {
+    background-color: #5e81ac;
+    text-color: #eceff4;
+}
+
+element-icon {
+    size: 24px;
+    margin: 0 10px 0 0;
+}
+
+element-text {
+    vertical-align: 0.5;
+}
+
+mode-switcher {
+    spacing: 10px;
+}
+
+button {
+    padding: 8px;
+    background-color: #3b4252;
+    text-color: #c0c5ce;
+    border-radius: 5px;
+}
+
+button selected {
+    background-color: #5e81ac;
+    text-color: #eceff4;
+}
